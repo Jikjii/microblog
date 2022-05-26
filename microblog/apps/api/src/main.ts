@@ -4,15 +4,24 @@
  */
 
 import * as express from 'express';
+import { AuthRoutes } from './app/routes/Auth'
+import { PostRoutes } from './app/routes/Post'
+import { connectToDatabase } from './database';
+
+connectToDatabase()
+  .then(() => console.log('Connected to database'))
+  .catch(console.error);
 
 const app = express();
 
-app.get('/api', (req, res) => {
-  res.send({ message: 'Welcome to api!' });
-});
+app.use(AuthRoutes);
+app.use('post', PostRoutes);
 
 const port = process.env.port || 3333;
 const server = app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}/api`);
 });
 server.on('error', console.error);
+
+
+
