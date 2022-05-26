@@ -10,17 +10,17 @@ import NxWelcome from './nx-welcome';
 export function App() {
   return (
     <BrowserRouter>
-      <header>
-        <h1>Microblog</h1>
-        <nav>
-          <ul>
-            <li>
+      <header className="mb-4 p-2 bg-blue-100 flex items-center justify-between">
+        <h1 className="p-2 text-4xl">Microblog</h1>
+        <nav className="flex justify-end">
+          <ul className="flex justify-between gap-8">
+            <li className="text-blue-800">
               <Link to="/">Home</Link>
             </li>
-            <li>
+            <li className="text-blue-800">
               <Link to="/newpost">Create Post</Link>
             </li>
-            <li>
+            <li className="text-blue-800">
               <Link to="/Login">Login</Link>
             </li>
           </ul>
